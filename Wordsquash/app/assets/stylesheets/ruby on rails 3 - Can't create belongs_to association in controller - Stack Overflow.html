@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<!-- saved from url=(0092)http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller -->
+<html itemscope="" itemtype="http://schema.org/QAPage" hola_ext_inject="ready"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=ea71a5211a91">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Can&#39;t create belongs_to association in controller">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="Please bare with me, just brushing up on Rails and have been stuck on this for a while and struggling to get my head around using associations in the controller.
+
+I have 2 models Users and Companies. ">
+    <meta property="og:url" content="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller">
+    <link rel="canonical" href="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow.html">
+
+    
+    
+    <script type="text/javascript" async="" src="http://engine.adzerk.net/ados?t=1427767772600&request={%22Placements%22:[{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk229078127%22,%22AT%22:4,%22Z%22:43},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk1821541092%22,%22AT%22:4,%22Z%22:44},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk830462831%22,%22ATA%22:[17,2221],%22Z%22:45}],%22Keywords%22:%22ruby-on-rails-3%2Cactiverecord%2Crails-models%22,%22Referrer%22:%22https%3A%2F%2Fwww.google.com.au%2F%22,%22IsAsync%22:true}"></script><script async="" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/quant.js"></script><script async="" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/beacon.js"></script><script async="" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/ados.js"></script><script src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/jquery.min.js"></script><style type="text/css"></style>
+    <script src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/all.css">
+    
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Can&#39;t create belongs_to association in controller&#39;" href="http://stackoverflow.com/feeds/question/14310304">
+    <meta name="twitter:app:country" content="US">
+    <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+    <meta name="twitter:app:id:iphone" content="871299723">
+    <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller">
+    <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+    <meta name="twitter:app:id:ipad" content="871299723">
+    <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller">
+    <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+    <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller">
+    <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+    <script>
+        
+        StackExchange.ready(function () {
+                
+                StackExchange.using("snippets", function () {
+                    StackExchange.snippets.initSnippetRenderer();
+                });
+                
+
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:14310304});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '14310304');
+                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+        });
+    </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1427767765,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"0a6609a3d09c51304b7fa4e32cc8f5db","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"ec70ab9978fa","js/moderator.en.js":"069f9deaa274","js/full-anon.en.js":"743f58427a9e","js/full.en.js":"50aa6a7fff3d","js/wmd.en.js":"c12815861c9e","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"09426bfe50aa","js/help.en.js":"5a7b18512b93","js/tageditor.en.js":"9527b15d1092","js/tageditornew.en.js":"a39ce5e7811c","js/inline-tag-editing.en.js":"48f13b102998","js/revisions.en.js":"6c7265ea9fa1","js/review.en.js":"337db3ee971a","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"c9132aa2d0e1","js/explore-qlist.en.js":"e7a80905fa22","js/events.en.js":"ca40b966f546","js/keyboard-shortcuts.en.js":"332ff670d608","js/external-editor.en.js":"b04e37426de6","js/external-editor.en.js":"b04e37426de6","js/snippet-javascript.en.js":"e2a72c4d91dd","js/snippet-javascript-codemirror.en.js":"9f4353d07567"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script async="" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/full-anon.en.js"></script><script async="" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/snippet-javascript.en.js"></script><script async="" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/post-validation.en.js"></script><script async="" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/prettify-full.en.js"></script><script async="" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/external-editor.en.js"></script><script type="text/javascript" src="http://static.adzerk.net/Extensions/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"><link type="text/css" rel="stylesheet" href="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/jobs.min.css"></head>
+<body class="question-page new-topbar" hola-ext-player="1">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f14310304%2fcant-create-belongs-to-association-in-controller" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f14310304%2fcant-create-belongs-to-association-in-controller" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 139 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f14310304%2fcant-create-belongs-to-association-in-controller" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f14310304%2fcant-create-belongs-to-association-in-controller" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+	<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://stackoverflow.com/tour" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free, no registration required.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/", expires: 365 });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+			<h1 itemprop="name"><a href="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow.html" class="question-hyperlink">Can't create belongs_to association in controller</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="14310304" id="question">
+
+    <script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk229078127",4).setZone(43) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk229078127"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjciI6Njk1NzEyLCJkaSI6IjM0Y2FjOGQwZTIyNTQzYWE5N2MzNWZkY2U0OWI2MjViIiwiZG0iOjEsImZjIjo3MjE4MDYsImZsIjo0MzE3ODAsImlwIjoiMTIyLjEwNy4xMzIuMzYiLCJrdyI6InJ1Ynktb24tcmFpbHMtMyxhY3RpdmVyZWNvcmQscmFpbHMtbW9kZWxzIiwibnciOjIyLCJwYyI6MCwicHIiOjE2MDQsInJ0IjoxLCJyZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20uYXUvIiwic3QiOjgyNzcsInVrIjoidWUxLWVlZjFlMWI2YzRkZTQ0NWJhZjkyZjhmN2U2MDk2ZGZjIiwiem4iOjQzLCJ0cyI6MTQyNzc2Nzc3Mjc4MSwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMjI5MDc4MTI3IiwidXIiOiJodHRwOi8vY2FyZWVycy5zdGFja292ZXJmbG93LmNvbS9qb2JzL3JlbW90ZT91dG1fc291cmNlPXN0YWNrb3ZlcmZsb3cuY29tJnV0bV9tZWRpdW09YWQmdXRtX2NhbXBhaWduPWNhbmRpZGF0ZXMtd2ZoJnV0bV9jb250ZW50PWxiLXdmaC1hbnl3aGVyZX4ifQ&s=mxzM8zCD2D7hgM-uJ3ZozrAI-Yk" rel="nofollow" target="_blank" title=""><img src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/ed3b3bbfd4364176bfd1feb8506577ed.jpg" title="" alt="" border="0" width="0" height="0" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;"></a><img height="0" width="0" border="0" style="position: absolute; display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/i.gif"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="14310304">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+    
+    <a class="star-off" href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b></b></div>   
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+        <p>Please bare with me, just brushing up on Rails and have been stuck on this for a while and struggling to get my head around using associations in the controller.</p>
+
+<p>I have 2 models Users and Companies. (I'm using Devise for User)</p>
+
+<ul>
+<li>User belongs to Company.</li>
+<li>Company has many Users.</li>
+</ul>
+
+<p>My User model includes an client_id column.</p>
+
+<p>At the moment a User signs-up and is directed to the new_company_path where I'd like to create the relationship. (I'd prefer to keep this in 2 steps).</p>
+
+<p>I know my code is wrong here in the <strong>companies_controller.rb</strong> — but it's where I'm at</p>
+
+<pre class="lang-rb prettyprint prettyprinted"><code><span class="pln">  </span><span class="kwd">def</span><span class="pln"> create
+    </span><span class="lit">@user</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> current_user
+    </span><span class="lit">@company</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">@user</span><span class="pun">.</span><span class="typ">Company</span><span class="pun">.</span><span class="pln">new</span><span class="pun">(</span><span class="pln">params</span><span class="pun">[:</span><span class="pln">company</span><span class="pun">])</span><span class="pln">
+
+    respond_to </span><span class="kwd">do</span><span class="pln"> </span><span class="pun">|</span><span class="pln">format</span><span class="pun">|</span><span class="pln">
+      </span><span class="kwd">if</span><span class="pln"> </span><span class="lit">@company</span><span class="pun">.</span><span class="pln">save
+        format</span><span class="pun">.</span><span class="pln">html </span><span class="pun">{</span><span class="pln"> redirect_to root_path</span><span class="pun">,</span><span class="pln"> notice</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Company was successfully created.'</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+        format</span><span class="pun">.</span><span class="pln">json </span><span class="pun">{</span><span class="pln"> render json</span><span class="pun">:</span><span class="pln"> </span><span class="lit">@company</span><span class="pun">,</span><span class="pln"> status</span><span class="pun">:</span><span class="pln"> </span><span class="pun">:</span><span class="pln">created</span><span class="pun">,</span><span class="pln"> location</span><span class="pun">:</span><span class="pln"> </span><span class="lit">@company</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+      </span><span class="kwd">else</span><span class="pln">
+        format</span><span class="pun">.</span><span class="pln">html </span><span class="pun">{</span><span class="pln"> render action</span><span class="pun">:</span><span class="pln"> </span><span class="str">"new"</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+          format</span><span class="pun">.</span><span class="pln">json </span><span class="pun">{</span><span class="pln"> render json</span><span class="pun">:</span><span class="pln"> </span><span class="lit">@company</span><span class="pun">.</span><span class="pln">errors</span><span class="pun">,</span><span class="pln"> status</span><span class="pun">:</span><span class="pln"> </span><span class="pun">:</span><span class="pln">unprocessable_entity </span><span class="pun">}</span><span class="pln">
+      </span><span class="kwd">end</span><span class="pln">
+    </span><span class="kwd">end</span></code></pre>
+
+<p>If anyone could help point me in the right direction it'd be much appreciated. Thanks for your time!</p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/ruby-on-rails-3" class="post-tag js-gps-track" title="show questions tagged &#39;ruby-on-rails-3&#39;" rel="tag">ruby-on-rails-3</a> <a href="http://stackoverflow.com/questions/tagged/activerecord" class="post-tag js-gps-track" title="show questions tagged &#39;activerecord&#39;" rel="tag">activerecord</a> <a href="http://stackoverflow.com/questions/tagged/rails-models" class="post-tag js-gps-track" title="show questions tagged &#39;rails-models&#39;" rel="tag">rails-models</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/14310304" title="short permalink to this question" class="short-link" id="link-post-14310304">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/14310304/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/14310304/revisions" title="show all edits to this post">edited <span title="2013-01-14 01:41:21Z" class="relativetime">Jan 14 '13 at 1:41</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2013-01-14 01:32:03Z" class="relativetime">Jan 14 '13 at 1:32</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1744100/cupcakekid"><div class="gravatar-wrapper-32"><img src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/3b8ee7f0ad981b95db23e0ba4908e1fa" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1744100/cupcakekid">cupcakekid</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">66</span><span title="7 bronze badges"><span class="badge3"></span><span class="badgecount">7</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-14310304" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-14310304" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								2 Answers
+                                <span style="display:none;" itemprop="answerCount">2</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+        <a href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="14310423"></a>
+<div id="answer-14310423" class="answer accepted-answer" data-answerid="14310423" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="14310423">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Your problem lies within the line</p>
+
+<pre class="lang-rb prettyprint prettyprinted"><code><span class="lit">@company</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">@user</span><span class="pun">.</span><span class="typ">Company</span><span class="pun">.</span><span class="pln">new</span><span class="pun">(</span><span class="pln">params</span><span class="pun">[:</span><span class="pln">company</span><span class="pun">])</span></code></pre>
+
+<p>The association from user to company should not be accessed with a capital letter. To get the company associated with a user, you should call it like this:</p>
+
+<pre class="lang-rb prettyprint prettyprinted"><code><span class="lit">@user</span><span class="pun">.</span><span class="pln">company</span></code></pre>
+
+<p>However, if there is no company associated then that method will return nil and you cannot call <code>.new</code> on nil so instead you need to call another method that Rails creates for you called <code>build_company</code> like this:</p>
+
+<pre class="lang-rb prettyprint prettyprinted"><code><span class="lit">@company</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">@user</span><span class="pun">.</span><span class="pln">build_company</span><span class="pun">(</span><span class="pln">params</span><span class="pun">[:</span><span class="pln">company</span><span class="pun">])</span></code></pre>
+
+<p>The last problem is that since it is the user that belongs to the company, the User instance needs to be updated with the newly created company_id and that will not happen if you only save the company. But when you use the build_company method, it will store the company instance in the association from User so if you call save on the user instead of the company it will create the company and link it to user, like this:</p>
+
+<pre class="lang-rb prettyprint prettyprinted"><code><span class="kwd">def</span><span class="pln"> create
+  </span><span class="lit">@user</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> current_user
+  </span><span class="lit">@user</span><span class="pun">.</span><span class="pln">build_company</span><span class="pun">(</span><span class="pln">params</span><span class="pun">[:</span><span class="pln">company</span><span class="pun">])</span><span class="pln">
+
+  respond_to </span><span class="kwd">do</span><span class="pln"> </span><span class="pun">|</span><span class="pln">format</span><span class="pun">|</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="lit">@user</span><span class="pun">.</span><span class="pln">save
+      format</span><span class="pun">.</span><span class="pln">html </span><span class="pun">{</span><span class="pln"> redirect_to root_path</span><span class="pun">,</span><span class="pln"> notice</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Company was successfully created.'</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+      format</span><span class="pun">.</span><span class="pln">json </span><span class="pun">{</span><span class="pln"> render json</span><span class="pun">:</span><span class="pln"> </span><span class="lit">@user</span><span class="pun">.</span><span class="pln">company</span><span class="pun">,</span><span class="pln"> status</span><span class="pun">:</span><span class="pln"> </span><span class="pun">:</span><span class="pln">created</span><span class="pun">,</span><span class="pln"> location</span><span class="pun">:</span><span class="pln"> </span><span class="lit">@user</span><span class="pun">.</span><span class="pln">company </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln">
+      format</span><span class="pun">.</span><span class="pln">html </span><span class="pun">{</span><span class="pln"> render action</span><span class="pun">:</span><span class="pln"> </span><span class="str">"new"</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+      format</span><span class="pun">.</span><span class="pln">json </span><span class="pun">{</span><span class="pln"> render json</span><span class="pun">:</span><span class="pln"> </span><span class="lit">@user</span><span class="pun">.</span><span class="pln">company</span><span class="pun">.</span><span class="pln">errors</span><span class="pun">,</span><span class="pln"> status</span><span class="pun">:</span><span class="pln"> </span><span class="pun">:</span><span class="pln">unprocessable_entity </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">end</span><span class="pln">
+  </span><span class="kwd">end</span><span class="pln">
+</span><span class="kwd">end</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/14310423" title="short permalink to this answer" class="short-link" id="link-post-14310423">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/14310423/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-01-14 01:50:43Z" class="relativetime">Jan 14 '13 at 1:50</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/511558/dannemanne"><div class="gravatar-wrapper-32"><img src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/935cbe780c1c0a4adfeb7b2dd404a32e" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/511558/dannemanne">DanneManne</a><br>
+        <span class="reputation-score" title="reputation score 14474" dir="ltr">14.5k</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="36 silver badges"><span class="badge2"></span><span class="badgecount">36</span></span><span title="41 bronze badges"><span class="badge3"></span><span class="badgecount">41</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-14310423" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-19882492" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thankyou DanneManne for not only providing the answer but breaking it down :) It was the @user.save that was tripping me up, makes total sense now. Much appreciated!</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1744100/cupcakekid" title="66 reputation" class="comment-user owner">cupcakekid</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller#comment19882492_14310423"><span title="2013-01-14 01:56:35Z" class="relativetime-clean">Jan 14 '13 at 1:56</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-14310423" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk1821541092",4).setZone(44) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1821541092"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjciI6NzI0MjgyLCJkaSI6Ijg5NGUwMzIzNDUyNjRmMTE4OTkxMDM2YjJlNWQ0MDQxIiwiZG0iOjEsImZjIjo3NTQwNzYsImZsIjo0MTAxODMsImlwIjoiMTIyLjEwNy4xMzIuMzYiLCJrdyI6InJ1Ynktb24tcmFpbHMtMyxhY3RpdmVyZWNvcmQscmFpbHMtbW9kZWxzIiwibnciOjIyLCJwYyI6MCwicHIiOjE1NjgsInJ0IjoxLCJyZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20uYXUvIiwic3QiOjgyNzcsInVrIjoidWUxLWVlZjFlMWI2YzRkZTQ0NWJhZjkyZjhmN2U2MDk2ZGZjIiwiem4iOjQ0LCJ0cyI6MTQyNzc2Nzc3Mjc4NCwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTgyMTU0MTA5MiIsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vcHJvZHVjdHM_dXRtX3NvdXJjZT1zdGFja292ZXJmbG93LmNvbSZ1dG1fbWVkaXVtPWFkJnV0bV9jYW1wYWlnbj1lbXBsb3llcnMtYmVzdC13YXkmdXRtX2NvbnRlbnQ9bGItYmVzdC13YXkifQ&s=ehZMt3sOvNPuEBQzKXX8U5nhj_4" rel="nofollow" target="_blank" title=""><img src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/6a84d696ad6c4679804e4923a617ade4.png" title="" alt="" border="0" width="0" height="0" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;"></a><img height="0" width="0" border="0" style="position: absolute; display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/i(1).gif"></div>
+  
+<a name="14310323"></a>
+<div id="answer-14310323" class="answer" data-answerid="14310323" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="14310323">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Your <code>User</code> model needs a <code>company_id</code> column. Then you can make a form to record that value wherever you like (i.e., on the <code>new_company_path</code> page).</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/14310323" title="short permalink to this answer" class="short-link" id="link-post-14310323">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/14310323/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-01-14 01:34:44Z" class="relativetime">Jan 14 '13 at 1:34</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1342734/booltox"><div class="gravatar-wrapper-32"><img src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/7JI1P.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1342734/booltox">booltox</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1,806</span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="30 bronze badges"><span class="badge3"></span><span class="badgecount">30</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-14310323" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-19882277" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">It does. It's included in my devise_creates_user migration and confirmed when I run User.all in console... Feel like I'm missing something.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1744100/cupcakekid" title="66 reputation" class="comment-user owner">cupcakekid</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller#comment19882277_14310323"><span title="2013-01-14 01:39:57Z" class="relativetime-clean">Jan 14 '13 at 1:39</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-19882348" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">And you've defined the relationships in the models—i.e., company <code>has_many :users</code>; user <code>belongs_to :company</code>? Because once that's done, and company IDs are recorded into that column, that's all you need to do.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1342734/booltox" title="1806 reputation" class="comment-user">booltox</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller#comment19882348_14310323"><span title="2013-01-14 01:45:06Z" class="relativetime-clean">Jan 14 '13 at 1:45</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-19882432" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Yep, I have those. I create the User, then create the Company but when I search that newly created user in the console their company_id = nil. I'll update post with more code.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1744100/cupcakekid" title="66 reputation" class="comment-user owner">cupcakekid</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller#comment19882432_14310323"><span title="2013-01-14 01:51:38Z" class="relativetime-clean">Jan 14 '13 at 1:51</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-14310323" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/14310304/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="14310304">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.com.au/">
+							<h2 class="space">Your Answer</h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.options.snippets.enabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            prepareEditor({
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                ,immediatelyShowMarkdownHelp:true
+                });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="0a6609a3d09c51304b7fa4e32cc8f5db">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f14310304%2fcant-create-belongs-to-association-in-controller%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f14310304%2fcant-create-belongs-to-association-in-controller%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/ruby-on-rails-3" class="post-tag" title="show questions tagged &#39;ruby-on-rails-3&#39;" rel="tag">ruby-on-rails-3</a> <a href="http://stackoverflow.com/questions/tagged/activerecord" class="post-tag" title="show questions tagged &#39;activerecord&#39;" rel="tag">activerecord</a> <a href="http://stackoverflow.com/questions/tagged/rails-models" class="post-tag" title="show questions tagged &#39;rails-models&#39;" rel="tag">rails-models</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2013-01-14 01:32:03Z"><b>2 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>1479 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/14310304/cant-create-belongs-to-association-in-controller?lastactivity" class="lastactivity-link" title="2013-01-14 01:50:43Z">2 years ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk830462831",[17,2221]).setZone(45) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk830462831"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6MTg2NjI0LCJjaCI6MTE3OCwiY3IiOjY5NTcxOCwiZGkiOiJjYzhhYTJhZTFkZmE0MGZmOWU2OWQxMzU2Y2E5Yjg0MSIsImRtIjoxLCJmYyI6NzIxODEyLCJmbCI6NDMxNzgwLCJpcCI6IjEyMi4xMDcuMTMyLjM2Iiwia3ciOiJydWJ5LW9uLXJhaWxzLTMsYWN0aXZlcmVjb3JkLHJhaWxzLW1vZGVscyIsIm53IjoyMiwicGMiOjAsInByIjoxNjA0LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLmF1LyIsInN0Ijo4Mjc3LCJ1ayI6InVlMS1lZWYxZTFiNmM0ZGU0NDViYWY5MmY4ZjdlNjA5NmRmYyIsInpuIjo0NSwidHMiOjE0Mjc3Njc3NzI3ODcsImJmIjp0cnVlLCJwbiI6ImFkemVyazgzMDQ2MjgzMSIsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vam9icy9yZW1vdGU_dXRtX3NvdXJjZT1zdGFja292ZXJmbG93LmNvbSZ1dG1fbWVkaXVtPWFkJnV0bV9jYW1wYWlnbj1jYW5kaWRhdGVzLXdmaCZ1dG1fY29udGVudD1zYi13ZmgtcGFqYW1hcyJ9&s=mvD-dKHUZ7Fl5G9vfigSL8jLSks" rel="nofollow" target="_blank" title=""><img src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/684d3ba6423947caafba62a6e2acc9e0.jpg" title="" alt="" border="0" width="0" height="0" style="display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;"></a><img height="0" width="0" border="0" style="position: absolute; display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 0px 0px;" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/i(2).gif"></div>  
+        <div id="hireme" class="blue near-you tagged"><a href="http://careers.stackoverflow.com/jobs/location/Mount%20Waverley?a=2yFdC" target="_blank" data-loc="Mount%20Waverley" data-la="94Co4zm" data-hf="h" class="top"> <span>Jobs near you</span></a><ul class="jobs"><li><a data-cid="154837" data-la="mVxEiCzPv8Z" href="http://careers.stackoverflow.com/jobs/68366/c-sharp-net-software-engineer-121cast-pty-ltd" target="_blank" title="C# .NET Software Engineer at 121cast Pty Ltd. Click to learn more.">C# .NET Software Engineer<br><div class="company">121cast Pty</div><div class="location" title="Melbourne, Australia">Melbourne, Australia</div><span class="post-tag">c#</span><span class="post-tag">asp.net-mvc</span></a></li><li><a data-cid="168501" data-la="rz7m0wl4IxA" href="http://careers.stackoverflow.com/jobs/82197/lead-software-engineer-front-end-kogancom" target="_blank" title="Lead Software Engineer - Front End at Kogan.com. Click to learn more.">Lead Software Engineer - Front End<br><div class="company">Kogan.com</div><div class="location" title="Melbourne, Australia">Melbourne, Australia</div><span class="post-tag">agile</span><span class="post-tag">javascript</span></a></li><li class="city"><a href="http://careers.stackoverflow.com/jobs/location/Mount%20Waverley" target="_blank" data-hf="f" data-loc="Mount%20Waverley" data-la="94Co4zm">More jobs near Mount Waverley…</a></li></ul><img class="impression" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/i" style="display:none;"><img class="impression" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/mVxEiCzPv8Z-rz7m0wl4IxA-2yFdC" style="display:none;"></div>
+			<div style="margin-bottom: 10px;">
+        
+
+<style type="text/css">
+#newsletter-ad {
+    width: 190px;
+    height: 250px;
+    overflow: hidden;
+    background: url('//cdn.sstatic.net/stackoverflow/img/newsletter-ad.png');
+    padding: 0 15px 0 15px;
+}
+#newsletter-ad-header {
+    margin-top: 60px;
+}
+#newsletter-ad ul {
+    margin: 1em 0 1em 1.5em;
+}
+#newsletter-ad ul li {
+    margin-bottom: 5px;
+}
+#newsletter-signup-container {
+    text-align: center;
+}
+#newsletter-preview-container {
+    margin-top: 10px;
+    text-align: center;
+}
+#newsletter-email-input {
+    width: 200px;
+}
+</style>
+
+<script>
+    StackExchange.ready(function () {
+        StackExchange.newsletterAd.init();
+    });
+</script>
+
+<div id="newsletter-ad">
+    <p id="newsletter-ad-header">Get the <b>weekly newsletter!</b></p>
+    <ul>
+        <li>Top questions and answers</li>
+        <li>Important announcements</li>
+        <li>Unanswered questions</li>
+    </ul>
+    <div id="newsletter-signup-container"><input id="newsletter-signup" type="button" value="Sign up for the newsletter"></div>
+    <p id="newsletter-preview-container">see an <a href="http://stackexchange.com/newsletters/newsletter?site=stackoverflow.com" id="newsletter-preview">example newsletter</a></p>
+    <div class="dno">
+        
+<p class="privacy-policy-agreement">
+By subscribing, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">
+    </div>
+</div>
+
+    </div>  
+    
+            
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/4021322?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">47
+    </div>
+</a><a href="http://stackoverflow.com/questions/4021322/belongs-to-through-associations?rq=1" class="question-hyperlink">belongs_to through associations</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/4858222?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/4858222/error-messages-with-form-tag-in-separate-controller-rails-3?rq=1" class="question-hyperlink">Error Messages with form_tag in separate controller Rails 3</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/5679580?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/5679580/custom-return-value-for-new-create-activerecord-model?rq=1" class="question-hyperlink">Custom return value for new / create ActiveRecord model</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/6759855?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/6759855/rails-3-update-multiple-parents-when-creating-a-child-object-on-one-of-the-pare?rq=1" class="question-hyperlink">Rails 3: update multiple parents when creating a child object on one of the parent's show</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/7679374?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/7679374/ror3-model-associations-game-belongs-to-two-players?rq=1" class="question-hyperlink">RoR3 Model associations (Game belongs_to two Players)</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/10807332?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/10807332/rails-one-to-many-associations-not-returning-records?rq=1" class="question-hyperlink">Rails One-To-Many Associations Not Returning Records</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/11786667?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/11786667/rails-create-has-record-for-a-nested-model?rq=1" class="question-hyperlink">Rails Create has_record? for a nested model</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/14569590?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/14569590/ruby-on-rails-pass-id-to-new-create-form?rq=1" class="question-hyperlink">Ruby on Rails pass id to new create form</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/16508763?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/16508763/rails-associations-riddle-user-lecturer-student-and-event?rq=1" class="question-hyperlink">Rails Associations Riddle: User, Lecturer, Student and Event</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/18733504?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/18733504/facing-problems-with-association?rq=1" class="question-hyperlink">Facing problems with association</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/13030/what-could-an-average-modern-human-achieve-in-medieval-times" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What could an average modern human achieve in medieval times?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/11267/two-sheriffs-and-eavesdroppers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Two Sheriffs and Eavesdroppers
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/42553/how-do-i-tell-my-supervisor-his-idea-is-incorrect" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I tell my supervisor his idea is incorrect?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/48284/infinite-labyrinths" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Infinite Labyrinths
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/85133/why-is-worf-in-the-undiscovered-country" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is Worf in The Undiscovered Country?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/236011/the-equation-number-jumps-to-the-left-of-the-page" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    the equation number jumps to the left of the page
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-blender" title="Blender Stack Exchange"></div><a href="http://blender.stackexchange.com/questions/27906/make-transparent-object-not-layer-up-itself" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:502 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Make transparent object not layer up itself
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/58830/how-to-handle-public-displays-of-affection-between-players-during-the-game" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to handle public displays of affection between players during the game?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathematica" title="Mathematica Stack Exchange"></div><a href="http://mathematica.stackexchange.com/questions/78666/convert-a-list-of-hexadecimal-numbers-to-decimal" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:387 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Convert a list of hexadecimal numbers to decimal
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/201536/mathematicians-wearing-hats-on-arbitrary-total-orders" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Mathematicians wearing hats on arbitrary total orders
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-apple" title="Ask Different"></div><a href="http://apple.stackexchange.com/questions/178917/using-my-own-server-instead-of-icloud" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:118 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Using my own server instead of iCloud
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/193482/get-last-part-of-string-after-hyphen" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Get last part of string after hyphen
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="http://ux.stackexchange.com/questions/75575/should-the-cross-or-x-button-do-something-other-than-close-e-g-minimize-o" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should the cross (or 'X' ) button do something other than close (e.g. minimize or hide)?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/43454/how-to-handle-a-silly-assignment-in-internship" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to handle a silly assignment in internship?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-blender" title="Blender Stack Exchange"></div><a href="http://blender.stackexchange.com/questions/27899/glue-like-effect" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:502 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Glue like effect
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/43490/how-to-ask-for-a-decision-after-an-interview" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to ask for a decision after an interview?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codereview" title="Code Review Stack Exchange"></div><a href="http://codereview.stackexchange.com/questions/85429/picking-random-lines-out-of-text-files" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Picking random lines out of text files
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="http://travel.stackexchange.com/questions/45400/can-a-rip-on-a-suitcase-be-repaired-with-iron-on-patches" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can a rip on a suitcase be repaired with iron-on patches?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/58834/do-i-get-advantage-if-attacking-from-behind" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do I get advantage if attacking from behind?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/162347/first-checks-after-oscilloscope-unboxing" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    First checks after oscilloscope unboxing
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/173256/is-it-possible-that-every-single-isotope-are-radioactive-and-isotopes-which-we" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it possible that every single isotope are radioactive, and isotopes which we call stable are actually unstable but have an extremely big half-life?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/11242/solitaire-chess" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Solitaire Chess
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/201506/epicycles-ptolemy-style-in-math-theory" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    "Epicycles" (Ptolemy style) in math theory?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/236434/whats-the-difference-between-archaic-and-obsolete-in-dictionaries" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What's the difference between "archaic" and "obsolete" in dictionaries?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/14310304" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/14310304/ivc/a9ed');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/14310304/ivc/a9ed" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-rb</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (14)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (10)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.3.30.2415
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('ruby-on-rails-3,activerecord,rails-models');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        
+        ga('set', 'dimension2', '|ruby-on-rails-3|activerecord|rails-models|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>                
+    
+<iframe style="display: none !important; position: fixed !important; padding: 0px !important; margin: 0px !important; left: 0px !important; top: 0px !important; width: 100% !important; height: 100% !important; z-index: 2147483647 !important; border: none !important; background-color: transparent !important;"></iframe><script type="text/javascript" src="./ruby on rails 3 - Can't create belongs_to association in controller - Stack Overflow_files/p"></script></body></html>
