@@ -1,10 +1,11 @@
-Workshop 1 - completed\n
-Workshop 2 - require outline of Model Viewer Controller Method\n
-Workshop 3 - \n
-Workshop 4 - \n
-Workshop 5 - \n
-\n
-Assignment 1 - completed \n
-Assignment 2 - \n
-Assignment 3 - \n
+-Workshop 1 - completed
+-Workshop 2 - require outline of Model Viewer Controller Method
+-Workshop 3 - 
+-Workshop 4 - 
+-Workshop 5 - 
+
+
+-Assignment 1 - completed
+-Assignment 2 - 
+-Assignment 3 - 
 
