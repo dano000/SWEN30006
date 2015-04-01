@@ -2,7 +2,7 @@
 
 <h1>Listing Categories</h1>
 
-<table style="align-content: center">
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,11 +14,11 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><h3><%= category.name %>&nbsp;</h3></td>
-        <td><h4><%= category.description %>&nbsp;</h4></td>
-        <td><h5><%= link_to 'Show', category %></h5></td>
-        <td><h5><%= link_to 'Edit', edit_category_path(category) %></h5></td>
-        <td><h5><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></h5></td>
+        <td><%= category.name %>&nbsp;</td>
+        <td><%= category.description %>&nbsp;</td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -7,14 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container-fluid">
+
 <div class="navbar navbar-inverse" role="navigation">
-  <div class="navbar-header"><div class="container">
+  <div class="navbar-header">
     <%= link_to "Wordsqush", posts_path, class: 'navbar-brand' %>
   </div>
   </div>
-</div>
-<div class="container">
+
+
+<div class="col-sm-12">
   <%= yield %>
+</div>
 </div>
 </body>
 </html>
